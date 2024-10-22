@@ -2,8 +2,8 @@
   text-align: center;
   min-width: fit-content;
   min-height: fit-content;
-  
   background-color: #333842;
+  height: 100%;
   /* border: 4px green solid; */
 
 }
@@ -23,10 +23,11 @@
 .App-header {
   background-color: #23272e;
   min-height: 20vh;
-  min-width: fit-content;
-  max-width: 100vw;
+  /* min-width: fit-content; */
+  /* max-width: 100vw; */
   max-height: 100vh;
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
