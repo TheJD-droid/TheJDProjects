@@ -447,21 +447,27 @@ export default function BalloonPage() {
 }
 
 
-//function being used to create each the balloon component
-function createBalloons(numberOfBalloons, onReset, setOnReset, toBePopped, handlePop, gameState, handleGameState) {
-    let result = []
-    
-    for (let i = 0; i < numberOfBalloons; i++) {
-        result = result.concat((<Grid key={`uniqueGridId${i}`}item><Balloon key={`uniqueBalloonId${i + 1}`} idNum={i + 1} onReset={onReset} setOnReset={setOnReset} toBePopped={toBePopped} handlePop={handlePop} gameState={gameState} handleGameState={handleGameState} ></Balloon></Grid>));
-        
-    }
-    
-    return result;
-}
+
 
 
 //Where the magic happens bay-bee!
 function probabilityOfOutcome(numBalloons, popped) {
+    // Handle edge case for zero or negative number of balloons
+    if (numBalloons <= 0) {
+        return 0;
+    }
+
+    // Handle edge case for negative number of popped balloons
+    if (popped < 0) {
+        return 0;
+    }
+
+    // Handle edge case for popped greater than number of balloons
+    if (popped > numBalloons) {
+        return 0;
+    }
+
+    //Numerator and denominator of formula that is used to calculate the probability
     let numerator = 1;
     let denominator = 2;
     for (let i = numBalloons; i > numBalloons - popped; i--) {
@@ -472,6 +478,7 @@ function probabilityOfOutcome(numBalloons, popped) {
         denominator = denominator * (i-1)
     }
     
+    //Find probability, multiply by 100 to make it a percentage
     let result = (numerator / denominator) * 100
     
     //Controlling level of precision to display
@@ -493,3 +500,50 @@ function probabilityOfOutcome(numBalloons, popped) {
 
 return result;
 }
+
+
+
+
+function createBalloons(numberOfBalloons, onReset, setOnReset, toBePopped, handlePop, gameState, handleGameState) {
+    let result = [];
+
+    // Handle edge case for zero or negative number of balloons
+    if (numberOfBalloons <= 0) {
+        return result;
+    }
+
+
+    // Handle edge case for null or undefined props
+    if ((onReset === null ) || (onReset === undefined) || !setOnReset || !toBePopped || !handlePop || !gameState || !handleGameState) {
+        console.log('numberOfBalloons: ' + !numberOfBalloons);
+        console.log('setOnReset: ' + !setOnReset);
+        console.log('toBePopped: ' + !toBePopped);
+        console.log('handlePop:' + !handlePop);
+        console.log('gameState: ' + !gameState);
+        console.log('handleGameState: ' + !handleGameState);
+        
+        console.warn("One or more props are null or undefined");
+        return result;
+    }
+
+    for (let i = 0; i < numberOfBalloons; i++) {
+        result = result.concat((
+            <Grid key={`uniqueGridId${i}`} item>
+                <Balloon
+                    key={`uniqueBalloonId${i + 1}`}
+                    idNum={i + 1}
+                    onReset={onReset}
+                    setOnReset={setOnReset}
+                    toBePopped={toBePopped}
+                    handlePop={handlePop}
+                    gameState={gameState}
+                    handleGameState={handleGameState}
+                ></Balloon>
+            </Grid>
+        ));
+    }
+
+    return result;
+}
+
+
