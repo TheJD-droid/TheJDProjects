@@ -10,7 +10,8 @@ import Navbar from './components/Navbar';
 import Winner from './pages/BalloonPage';
 import React, { useCallback, useEffect, useContext } from 'react';
 import BalloonPage from './pages/BalloonPage';
-
+import BalloonProblemPDF from './pages/BalloonProblemPDF.js';
+//import Pdf from './assets/TheBalloonProblem.pdf';
 
 function App() {
 
@@ -26,12 +27,20 @@ function App() {
       </div>
           <div className="App-body">
           
+
+        {/* <Routes>
+          <Route path='' element={<Home />} />
+          <Route path='/TicTacToe' element={<TicTacToe/>} />
+          <Route path='/BalloonGame' element={<BalloonPage/>} />
+        </Routes>
+         */}
         <Routes>
             {/* <Route path='/' element={<Home />} /> */}
             {/* <Route path='/' element={<Home/>} /> */}
             <Route path='' element={<Home />} />
             <Route path='/TicTacToe' element={<TicTacToe/>} />
             <Route path='/BalloonGame' element={<BalloonPage/>} />
+            {/* <Route path='/TheBalloonProblem' element={<BalloonProblemPDF />} /> */}
               {/* <Route index element={<Home />} /> */}
               {/* <Route path={urlHome} element={<TicTacToe/>}/> */}
               {/* <Route path={urlHome + 'TicTacToe'} element={<TicTacToe/>}/> */}

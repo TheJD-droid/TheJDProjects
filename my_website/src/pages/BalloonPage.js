@@ -21,7 +21,6 @@ import Pdf from '../assets/TheBalloonProblem.pdf';
 
 
 
-
 const theme = createTheme({
     palette: {
         action: {
@@ -298,6 +297,20 @@ export default function BalloonPage() {
     }, [triggerCoinToss, coinState])
 
 
+    //Function for opening the pdf. Needed for adding the correct favicon
+    const openPDF = () => {
+
+        //const newWindow = window.open('/TheJDProjects/pdf-wrapper.html', '_blank');
+        const newWindow = window.open('TheJDProjects#/TheBalloonProblem', '_blank')
+        // const newWindow = window.open(Pdf, '_blank');
+        // if (newWindow) {
+        //   newWindow.document.head.innerHTML += `<link rel="icon" href="/TheJDProjects/favicon.ico" type="image/x-icon" />`;
+        // }
+      };
+
+
+
+
     return(
     <>
 
@@ -388,6 +401,7 @@ export default function BalloonPage() {
                                 }}>Reset</Button>
                                 </ThemeProvider>
                                 <Button variant='contained' style={{margin: '5px'}} href={Pdf} target="_blank">Math for Nerds</Button>
+                                {/* <Button variant='contained' style={{margin: '5px'}} onClick={openPDF}>Math for Nerds</Button> */}
 
                             </Grid>
                         </Grid>
