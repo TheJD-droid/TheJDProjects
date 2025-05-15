@@ -22,6 +22,7 @@
 .horizontal-scroll-container {
   overflow-x: auto;
   max-width: 100vw;
+  position: relative;
 }
 
 .wide-content {

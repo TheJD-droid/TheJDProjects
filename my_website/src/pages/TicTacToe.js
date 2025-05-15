@@ -74,8 +74,8 @@ function TicTacToe() {
 
 
 
-    // return (<div className='horizontal-scroll-container'>
-    return (<div>
+    return (<div className='horizontal-scroll-container'>
+    {/* return (<div> */}
     {/* Fireworks animation, only occurs when the Modal is open. */}
     {openModal && superTTTState.winner !== 'cat' ? <WinnerAnimation /> : <></>}
     {/* Modal to indicate who won */}
@@ -100,7 +100,7 @@ function TicTacToe() {
 
     {/* Used to contain everything to the size of the screen, while allowing scrolling for the TTT board when it's 
     minimum width leaves it wider than the screen */}
-    <div className="horizontal-scroll-container">
+    {/* <div className="horizontal-scroll-container"> */}
         
         {/* Grid containing contents of the page, including the board, Reset button, and How to Play button */}
         <Grid container justifyContent={'center'} alignItems={'center'} direction='column' minWidth={'520px'}>
@@ -343,7 +343,7 @@ function TicTacToe() {
         {/* End of item that holds the Reset and How to Play buttons */}        
         </Grid>
       {/* </div> */}
-    </div>
+    {/* </div> */}
 
 </div>);
 }
