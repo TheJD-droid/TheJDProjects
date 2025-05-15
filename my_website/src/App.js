@@ -15,46 +15,53 @@ import BalloonProblemPDF from './pages/BalloonProblemPDF.js';
 
 function App() {
 
+  // const setAppHeight = () => {
+  //   document.documentElement.style.setProperty('--app-height', `${window.innerHeight}px`);
+  // };
+  // window.addEventListener('resize', setAppHeight);
+  // setAppHeight();
 
   // const urlHome = 'https://thejd-droid.github.io/TheJDProjects/'
 
    return (
-    <div className="App" id='root'>
-      {/* <BrowserRouter> */}
-      <HashRouter basename=''>
-      <div className="App-header">
-            <Navbar />
-      </div>
-          <div className="App-body">
-          
-
-        {/* <Routes>
-          <Route path='' element={<Home />} />
-          <Route path='/TicTacToe' element={<TicTacToe/>} />
-          <Route path='/BalloonGame' element={<BalloonPage/>} />
-        </Routes>
-         */}
-        <Routes>
-            {/* <Route path='/' element={<Home />} /> */}
-            {/* <Route path='/' element={<Home/>} /> */}
-            <Route path='' element={<Home />} />
-            <Route path='/TicTacToe' element={<TicTacToe/>} />
-            <Route path='/BalloonGame' element={<BalloonPage/>} />
-            {/* <Route path='/TheBalloonProblem' element={<BalloonProblemPDF />} /> */}
-              {/* <Route index element={<Home />} /> */}
-              {/* <Route path={urlHome} element={<TicTacToe/>}/> */}
-              {/* <Route path={urlHome + 'TicTacToe'} element={<TicTacToe/>}/> */}
-              {/* <Route path='https://thejd-droid.github.io/TheJDProjects/' element={<Home/>} /> */}
-              {/* <Route path='/JDsProjects' element={<Home />} /> */}
-              {/* <Route path='/TicTacToe' element={<TicTacToe />} /> */}
-              {/* <Route path='/BalloonPage' element={<BalloonPage />} /> */}
-            
-          </Routes>        
+    
+    <div className="App">
+        {/* <BrowserRouter> */}
+        <HashRouter basename=''>
+        <div className="App-header">
+              <Navbar />
         </div>
-        {/* </BrowserRouter> */}
+
+        <div className='page-content'>
+
+          <div className="App-body">
+            {/* <Routes>
+              <Route path='' element={<Home />} />
+              <Route path='/TicTacToe' element={<TicTacToe/>} />
+              <Route path='/BalloonGame' element={<BalloonPage/>} />
+            </Routes>
+            */}
+            <Routes>
+                {/* <Route path='/' element={<Home />} /> */}
+                {/* <Route path='/' element={<Home/>} /> */}
+                <Route path='' element={<Home />} />
+                <Route path='/TicTacToe' element={<TicTacToe/>} />
+                <Route path='/BalloonGame' element={<BalloonPage/>} />
+                {/* <Route path='/TheBalloonProblem' element={<BalloonProblemPDF />} /> */}
+                  {/* <Route index element={<Home />} /> */}
+                  {/* <Route path={urlHome} element={<TicTacToe/>}/> */}
+                  {/* <Route path={urlHome + 'TicTacToe'} element={<TicTacToe/>}/> */}
+                  {/* <Route path='https://thejd-droid.github.io/TheJDProjects/' element={<Home/>} /> */}
+                  {/* <Route path='/JDsProjects' element={<Home />} /> */}
+                  {/* <Route path='/TicTacToe' element={<TicTacToe />} /> */}
+                  {/* <Route path='/BalloonPage' element={<BalloonPage />} /> */}
+                
+            </Routes>        
+          </div>
+        </div>
+          {/* </BrowserRouter> */}
         </HashRouter>
     </div>
-    
   );
   
 }

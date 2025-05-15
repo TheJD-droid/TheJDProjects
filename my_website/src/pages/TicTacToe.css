@@ -17,3 +17,15 @@
     left: 0;
     
 }
+
+
+.horizontal-scroll-container {
+  overflow-x: auto;
+  max-width: 100vw;
+}
+
+.wide-content {
+  min-width: 520px; /* Sets the miniumum value for the 'wide-content' that is contained within */ 
+                    /* the 'horizontal-scroll-container' class element */
+}
+

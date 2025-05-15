@@ -1,11 +1,14 @@
+
+/* * {
+  outline: 1px solid red;
+} */
+
 .App {
   text-align: center;
   min-width: fit-content;
-  min-height: fit-content;
   background-color: #333842;
-  height: 100%;
-  /* border: 4px green solid; */
-
+  min-height: 100vh;
+  /* border: 4px red solid; */
 }
 
 .App-logo {
@@ -22,10 +25,7 @@
 
 .App-header {
   background-color: #23272e;
-  min-height: 20vh;
-  /* min-width: fit-content; */
-  /* max-width: 100vw; */
-  max-height: 100vh;
+  min-height: 10vh;
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -37,17 +37,16 @@
 
 .App-body {
   background-color: #333842;
-  min-height: 80vh;
+  /* min-height: 90vh; */
+  min-height: fit-content;
   min-width: fit-content;
-  /* max-width: 100vw; */
-  /* max-height: 100vh; */
   height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
+  /* border: 4px green solid; */
 
   
 }
@@ -63,4 +62,26 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  /* background-color: #333842; */
+
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

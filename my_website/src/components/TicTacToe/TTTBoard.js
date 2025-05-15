@@ -21,7 +21,7 @@ export default function TTTBoard(props) {
 
 
     return(
-<Grid item>
+<Grid minWidth={'156.5px'} item>
           {/* First row */}
           <Grid item>
         <Grid container spacing={0} direction='row' bgcolor={'white'}>

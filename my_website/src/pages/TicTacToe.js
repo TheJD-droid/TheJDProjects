@@ -74,8 +74,8 @@ function TicTacToe() {
 
 
 
-    return (<>
-
+    // return (<div className='horizontal-scroll-container'>
+    return (<div>
     {/* Fireworks animation, only occurs when the Modal is open. */}
     {openModal && superTTTState.winner !== 'cat' ? <WinnerAnimation /> : <></>}
     {/* Modal to indicate who won */}
@@ -97,228 +97,255 @@ function TicTacToe() {
         </Box>
     </Modal>
 
-    {/* Grid containing contents of the page, including the board, Reset button, and How to Play button */}
-    <Grid container direction='row' minWidth='765px'>
 
-        {/* Item containing the title (Tic Tac Toe) and the SuperTTT board */}
-        <Grid item minWidth='500px' marginLeft='10vw'>
-            {/* Container holding the Title and superTTT board rows */}
-            <Grid container direction='column'>
-                {/* Title: Tic Tac Toe */}
-                <Grid item sx={{padding: '20px'}}>
-                    Tic Tac Toe
-                </Grid>
-    
-                {/*First row of superTTT board*/}
-                <Grid container direction='row'>
-
-                    <Grid item>
-                            
-                        <Grid container>
-                            {superTTTState['topLeft'] === 'O' ? <RadioButtonUncheckedIcon sx={styles.overlayImage1} /> : <></>}
-                            {superTTTState['topLeft'] === 'X' ? <ClearIcon sx={styles.overlayImage2} /> : <></>}
-                            {(superTTTState.winningCombo.includes('topLeft') && (superTTTState['topLeft'] === 'O')) ? <CheckIcon sx={styles.overlayImage3} /> : <></>}
-                            {(superTTTState.winningCombo.includes('topLeft') && (superTTTState['topLeft'] === 'X')) ? <CropFreeOutlinedIcon sx={styles.overlayImage3} /> : <></>}
-                            {superTTTState['topLeft'] === 'cat' ? <CopyrightTwoToneIcon sx={styles.overlayImage4} /> : <></>}
-                            {(!superTTTState.winningCombo.includes('topLeft') && superTTTState.winner !== 'None' && superTTTState['topLeft'] === 'blank') ? <TextureIcon sx={styles.overlayImage5} /> : <></>}
-                            <Grid item sx={
-                                (superTTTState.winner === 'None' && superTTTState.prevMove === 'topLeft') || (superTTTState.winner === 'None' && superTTTState.prevMove === 'None' && superTTTState['topLeft'] === 'blank') || (superTTTState.winningCombo.includes('topLeft')) ? styles.topLeftSelected : styles.topLeft
-                                }>
-                                    
-                                <TTTBoard boardState={boardState1} setBoardState1={setBoardState1} boardID={'topLeft'} superTTTState={superTTTState} setSuperTTTState={setSuperTTTState} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                
-                    <Grid item>
-                        <Grid container>
-                            {superTTTState['topMiddle'] === 'O' ? <RadioButtonUncheckedIcon sx={styles.overlayImage1} /> : <></>}
-                            {superTTTState['topMiddle'] === 'X' ? <ClearIcon sx={styles.overlayImage2} /> : <></>}
-                            {(superTTTState.winningCombo.includes('topMiddle') && (superTTTState['topMiddle'] === 'O')) ? <CheckIcon sx={styles.overlayImage3} /> : <></>}
-                            {(superTTTState.winningCombo.includes('topMiddle') && (superTTTState['topMiddle'] === 'X')) ? <CropFreeOutlinedIcon sx={styles.overlayImage3} /> : <></>}
-                            {superTTTState['topMiddle'] === 'cat' ? <CopyrightTwoToneIcon sx={styles.overlayImage4} /> : <></>}
-                            {(!superTTTState.winningCombo.includes('topMiddle') && superTTTState.winner !== 'None' && superTTTState['topMiddle'] === 'blank') ? <TextureIcon sx={styles.overlayImage5} /> : <></>}
-                            <Grid item sx={
-                                (superTTTState.winner === 'None' && superTTTState.prevMove === 'topMiddle') || (superTTTState.winner === 'None' && superTTTState.prevMove === 'None' && superTTTState['topMiddle'] === 'blank') || (superTTTState.winningCombo.includes('topMiddle')) ? styles.topMiddleSelected : styles.topMiddle
-                                }>
-                                <TTTBoard boardState={boardState2} setBoardState1={setBoardState2} boardID={'topMiddle'} superTTTState={superTTTState} setSuperTTTState={setSuperTTTState} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-
-                    <Grid item>
-                        <Grid container>
-                            {superTTTState['topRight'] === 'O' ? <RadioButtonUncheckedIcon sx={styles.overlayImage1} /> : <></>}
-                            {superTTTState['topRight'] === 'X' ? <ClearIcon sx={styles.overlayImage2} /> : <></>}
-                            {(superTTTState.winningCombo.includes('topRight') && (superTTTState['topRight'] === 'O')) ? <CheckIcon sx={styles.overlayImage3} /> : <></>}
-                            {(superTTTState.winningCombo.includes('topRight') && (superTTTState['topRight'] === 'X')) ? <CropFreeOutlinedIcon sx={styles.overlayImage3} /> : <></>}
-                            {superTTTState['topRight'] === 'cat' ? <CopyrightTwoToneIcon sx={styles.overlayImage4} /> : <></>}
-                            {(!superTTTState.winningCombo.includes('topRight') && superTTTState.winner !== 'None' && superTTTState['topRight'] === 'blank') ? <TextureIcon sx={styles.overlayImage5} /> : <></>}
-                            <Grid item sx={
-                                (superTTTState.winner === 'None' && superTTTState.prevMove === 'topRight') || (superTTTState.winner === 'None' && superTTTState.prevMove === 'None' && superTTTState['topRight'] === 'blank') || (superTTTState.winningCombo.includes('topRight')) ? styles.topRightSelected : styles.topRight
-                                }>
-                                <TTTBoard boardState={boardState3} setBoardState1={setBoardState3} boardID={'topRight'} superTTTState={superTTTState} setSuperTTTState={setSuperTTTState} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-
-                </Grid>
-                {/* End of First Row of superTTT board */}
-                
-
-                {/* Second row of superTTT board */}
-                <Grid container direction='row'>
-
-                    <Grid item>
-                        <Grid container>
-                            {superTTTState['middleLeft'] === 'O' ? <RadioButtonUncheckedIcon sx={styles.overlayImage1} /> : <></>}
-                            {superTTTState['middleLeft'] === 'X' ? <ClearIcon sx={styles.overlayImage2} /> : <></>}
-                            {(superTTTState.winningCombo.includes('middleLeft') && (superTTTState['middleLeft'] === 'O')) ? <CheckIcon sx={styles.overlayImage3} /> : <></>}
-                            {(superTTTState.winningCombo.includes('middleLeft') && (superTTTState['middleLeft'] === 'X')) ? <CropFreeOutlinedIcon sx={styles.overlayImage3} /> : <></>}
-                            {superTTTState['middleLeft'] === 'cat' ? <CopyrightTwoToneIcon sx={styles.overlayImage4} /> : <></>}
-                            {(!superTTTState.winningCombo.includes('middleLeft') && superTTTState.winner !== 'None' && superTTTState['middleLeft'] === 'blank') ? <TextureIcon sx={styles.overlayImage5} /> : <></>}
-                            <Grid item sx={
-                                (superTTTState.winner === 'None' && superTTTState.prevMove === 'middleLeft') || (superTTTState.winner === 'None' && superTTTState.prevMove === 'None' && superTTTState['middleLeft'] === 'blank') || (superTTTState.winningCombo.includes('middleLeft')) ? styles.middleLeftSelected : styles.middleLeft
-                                }>
-                                <TTTBoard boardState={boardState4} setBoardState1={setBoardState4} boardID={'middleLeft'} superTTTState={superTTTState} setSuperTTTState={setSuperTTTState} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
-                            </Grid>
-
-                        </Grid>
-                    </Grid>
-
-                    <Grid item>
-                        <Grid container>
-                            {superTTTState['middleMiddle'] === 'O' ? <RadioButtonUncheckedIcon sx={styles.overlayImage1} /> : <></>}
-                            {superTTTState['middleMiddle'] === 'X' ? <ClearIcon sx={styles.overlayImage2} /> : <></>}
-                            {(superTTTState.winningCombo.includes('middleMiddle') && (superTTTState['middleMiddle'] === 'O')) ? <CheckIcon sx={styles.overlayImage3} /> : <></>}
-                            {(superTTTState.winningCombo.includes('middleMiddle') && (superTTTState['middleMiddle'] === 'X')) ? <CropFreeOutlinedIcon sx={styles.overlayImage3} /> : <></>}
-                            {superTTTState['middleMiddle'] === 'cat' ? <CopyrightTwoToneIcon sx={styles.overlayImage4} /> : <></>}
-                            {(!superTTTState.winningCombo.includes('middleMiddle') && superTTTState.winner !== 'None' && superTTTState['middleMiddle'] === 'blank') ? <TextureIcon sx={styles.overlayImage5} /> : <></>}
-                            <Grid item sx={
-                                (superTTTState.winner === 'None' && superTTTState.prevMove === 'middleMiddle') || (superTTTState.winner === 'None' && superTTTState.prevMove === 'None' && superTTTState['middleMiddle'] === 'blank') || (superTTTState.winningCombo.includes('middleMiddle')) ? styles.middleMiddleSelected : styles.middleMiddle
-                                }>
-                                <TTTBoard boardState={boardState5} setBoardState1={setBoardState5} boardID={'middleMiddle'} superTTTState={superTTTState} setSuperTTTState={setSuperTTTState} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-
-                    <Grid item>
-                        <Grid container>
-                            {superTTTState['middleRight'] === 'O' ? <RadioButtonUncheckedIcon sx={styles.overlayImage1} /> : <></>}
-                            {superTTTState['middleRight'] === 'X' ? <ClearIcon sx={styles.overlayImage2} /> : <></>}
-                            {(superTTTState.winningCombo.includes('middleRight') && (superTTTState['middleRight'] === 'O')) ? <CheckIcon sx={styles.overlayImage3} /> : <></>}
-                            {(superTTTState.winningCombo.includes('middleRight') && (superTTTState['middleRight'] === 'X')) ? <CropFreeOutlinedIcon sx={styles.overlayImage3} /> : <></>}
-                            {superTTTState['middleRight'] === 'cat' ? <CopyrightTwoToneIcon sx={styles.overlayImage4} /> : <></>}
-                            {(!superTTTState.winningCombo.includes('middleRight') && superTTTState.winner !== 'None' && superTTTState['middleRight'] === 'blank') ? <TextureIcon sx={styles.overlayImage5} /> : <></>}
-                            <Grid item sx={
-                                (superTTTState.winner === 'None' && superTTTState.prevMove === 'middleRight') || (superTTTState.winner === 'None' && superTTTState.prevMove === 'None' && superTTTState['middleRight'] === 'blank') || (superTTTState.winningCombo.includes('middleRight')) ? styles.middleRightSelected : styles.middleRight
-                                }>
-                                <TTTBoard boardState={boardState6} setBoardState1={setBoardState6} boardID={'middleRight'} superTTTState={superTTTState} setSuperTTTState={setSuperTTTState} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-
-                </Grid>
-                {/* End of Second Row of superTTT board */}
-
-                {/* Third row of superTTT board */}
-                <Grid container direction='row'>
-
-                    <Grid item>
-                        <Grid container>
-                            {superTTTState['bottomLeft'] === 'O' ? <RadioButtonUncheckedIcon sx={styles.overlayImage1} /> : <></>}
-                            {superTTTState['bottomLeft'] === 'X' ? <ClearIcon sx={styles.overlayImage2} /> : <></>}
-                            {(superTTTState.winningCombo.includes('bottomLeft') && (superTTTState['bottomLeft'] === 'O')) ? <CheckIcon sx={styles.overlayImage3} /> : <></>}
-                            {(superTTTState.winningCombo.includes('bottomLeft') && (superTTTState['bottomLeft'] === 'X')) ? <CropFreeOutlinedIcon sx={styles.overlayImage3} /> : <></>}
-                            {superTTTState['bottomLeft'] === 'cat' ? <CopyrightTwoToneIcon sx={styles.overlayImage4} /> : <></>}
-                            {(!superTTTState.winningCombo.includes('bottomLeft') && superTTTState.winner !== 'None' && superTTTState['bottomLeft'] === 'blank') ? <TextureIcon sx={styles.overlayImage5} /> : <></>}
-                            <Grid item sx={
-                                (superTTTState.winner === 'None' && superTTTState.prevMove === 'bottomLeft') || (superTTTState.winner === 'None' && superTTTState.prevMove === 'None' && superTTTState['bottomLeft'] === 'blank') || (superTTTState.winningCombo.includes('bottomLeft')) ? styles.bottomLeftSelected : styles.bottomLeft
-                                }>
-                                <TTTBoard boardState={boardState7} setBoardState1={setBoardState7} boardID={'bottomLeft'} superTTTState={superTTTState} setSuperTTTState={setSuperTTTState} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-
-                    <Grid item>
-                        <Grid container>
-                            {superTTTState['bottomMiddle'] === 'O' ? <RadioButtonUncheckedIcon sx={styles.overlayImage1} /> : <></>}
-                            {superTTTState['bottomMiddle'] === 'X' ? <ClearIcon sx={styles.overlayImage2} /> : <></>}
-                            {(superTTTState.winningCombo.includes('bottomMiddle') && (superTTTState['bottomMiddle'] === 'O')) ? <CheckIcon sx={styles.overlayImage3} /> : <></>}
-                            {(superTTTState.winningCombo.includes('bottomMiddle') && (superTTTState['bottomMiddle'] === 'X')) ? <CropFreeOutlinedIcon sx={styles.overlayImage3} /> : <></>}
-                            {superTTTState['bottomMiddle'] === 'cat' ? <CopyrightTwoToneIcon sx={styles.overlayImage4} /> : <></>}
-                            {(!superTTTState.winningCombo.includes('bottomMiddle') && superTTTState.winner !== 'None' && superTTTState['bottomMiddle'] === 'blank') ? <TextureIcon sx={styles.overlayImage5} /> : <></>}
-                            <Grid item sx={
-                                (superTTTState.winner === 'None' && superTTTState.prevMove === 'bottomMiddle') || (superTTTState.winner === 'None' && superTTTState.prevMove === 'None' && superTTTState['bottomMiddle'] === 'blank') || (superTTTState.winningCombo.includes('bottomMiddle')) ? styles.bottomMiddleSelected : styles.bottomMiddle
-                                }>
-                                <TTTBoard boardState={boardState8} setBoardState1={setBoardState8} boardID={'bottomMiddle'} superTTTState={superTTTState} setSuperTTTState={setSuperTTTState} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
-                            </Grid>
-
-                        </Grid>
-                    </Grid>
-
-                    <Grid item>
-                        <Grid container>
-                            {superTTTState['bottomRight'] === 'O' ? <RadioButtonUncheckedIcon sx={styles.overlayImage1} /> : <></>}
-                            {superTTTState['bottomRight'] === 'X' ? <ClearIcon sx={styles.overlayImage2} /> : <></>}
-                            {(superTTTState.winningCombo.includes('bottomRight') && (superTTTState['bottomRight'] === 'O')) ? <CheckIcon sx={styles.overlayImage3} /> : <></>}
-                            {(superTTTState.winningCombo.includes('bottomRight') && (superTTTState['bottomRight'] === 'X')) ? <CropFreeOutlinedIcon sx={styles.overlayImage3} /> : <></>}
-                            {superTTTState['bottomRight'] === 'cat' ? <CopyrightTwoToneIcon sx={styles.overlayImage4} /> : <></>}
-                            {(!superTTTState.winningCombo.includes('bottomRight') && superTTTState.winner !== 'None' && superTTTState['bottomRight'] === 'blank') ? <TextureIcon sx={styles.overlayImage5} /> : <></>}
-                            <Grid item sx={
-                                (superTTTState.winner === 'None' && superTTTState.prevMove === 'bottomRight') || (superTTTState.winner === 'None' && superTTTState.prevMove === 'None' && superTTTState['bottomRight'] === 'blank') || (superTTTState.winningCombo.includes('bottomRight')) ? styles.bottomRightSelected : styles.bottomRight
-                                }>
-                                <TTTBoard boardState={boardState9} setBoardState1={setBoardState9} boardID={'bottomRight'} superTTTState={superTTTState} setSuperTTTState={setSuperTTTState} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-
-                </Grid>
-                {/* End of Third Row of superTTT board */}
-
-            </Grid>
-            {/* End of container holding the Title and superTTT board rows */}
-            
-        </Grid>
-        {/* End of item containing the title (Tic Tac Toe) and the SuperTTT board */}
+    {/* Used to contain everything to the size of the screen, while allowing scrolling for the TTT board when it's 
+    minimum width leaves it wider than the screen */}
+    <div className="horizontal-scroll-container">
         
-            
-        {/* Item that holds the Reset and How to Play buttons */}
-        <Grid item marginLeft='40px'>
+        {/* Grid containing contents of the page, including the board, Reset button, and How to Play button */}
+        <Grid container justifyContent={'center'} alignItems={'center'} direction='column' minWidth={'520px'}>
+            <Grid item>
+                <h3>Tic Tac Toe</h3>
+            </Grid>
+            {/*First row of superTTT board*/}
+            <Grid container direction='row' justifyContent={'center'} alignItems={'center'}>
+                
+                {/* Top left TTT Board */}
+                <Grid item>
+                    {/* Grid container used to hold TTT Board and Symbol of board outcome */}
+                    <Grid container>
+                        {/* Symbol of board outcome */}
+                        {superTTTState['topLeft'] === 'O' ? <RadioButtonUncheckedIcon sx={styles.overlayImage1} /> : <></>}
+                        {superTTTState['topLeft'] === 'X' ? <ClearIcon sx={styles.overlayImage2} /> : <></>}
+                        {(superTTTState.winningCombo.includes('topLeft') && (superTTTState['topLeft'] === 'O')) ? <CheckIcon sx={styles.overlayImage3} /> : <></>}
+                        {(superTTTState.winningCombo.includes('topLeft') && (superTTTState['topLeft'] === 'X')) ? <CropFreeOutlinedIcon sx={styles.overlayImage3} /> : <></>}
+                        {superTTTState['topLeft'] === 'cat' ? <CopyrightTwoToneIcon sx={styles.overlayImage4} /> : <></>}
+                        {(!superTTTState.winningCombo.includes('topLeft') && superTTTState.winner !== 'None' && superTTTState['topLeft'] === 'blank') ? <TextureIcon sx={styles.overlayImage5} /> : <></>}
+                        {/* TTT Board */}
+                        <Grid item sx={
+                            (superTTTState.winner === 'None' && superTTTState.prevMove === 'topLeft') || (superTTTState.winner === 'None' && superTTTState.prevMove === 'None' && superTTTState['topLeft'] === 'blank') || (superTTTState.winningCombo.includes('topLeft')) ? styles.topLeftSelected : styles.topLeft
+                            }>
+                            <TTTBoard boardState={boardState1} setBoardState1={setBoardState1} boardID={'topLeft'} superTTTState={superTTTState} setSuperTTTState={setSuperTTTState} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
+                        </Grid>
+                    </Grid>
+                </Grid>
 
-            {/* Container used to arrange the Reset and How to Play buttons in a column */}
-            <Grid container direction='column'>
-
-                {/* Item used for spacing */}
-                <Grid item sx={{height: '480px', maxHeight:'480px'}}>
+                {/* Top middle TTT board */}
+                <Grid item>
+                    {/* Grid container used to hold TTT Board and Symbol of board outcome */}
+                    <Grid container>
+                        {/* Symbol of board outcome */}                            
+                        {superTTTState['topMiddle'] === 'O' ? <RadioButtonUncheckedIcon sx={styles.overlayImage1} /> : <></>}
+                        {superTTTState['topMiddle'] === 'X' ? <ClearIcon sx={styles.overlayImage2} /> : <></>}
+                        {(superTTTState.winningCombo.includes('topMiddle') && (superTTTState['topMiddle'] === 'O')) ? <CheckIcon sx={styles.overlayImage3} /> : <></>}
+                        {(superTTTState.winningCombo.includes('topMiddle') && (superTTTState['topMiddle'] === 'X')) ? <CropFreeOutlinedIcon sx={styles.overlayImage3} /> : <></>}
+                        {superTTTState['topMiddle'] === 'cat' ? <CopyrightTwoToneIcon sx={styles.overlayImage4} /> : <></>}
+                        {(!superTTTState.winningCombo.includes('topMiddle') && superTTTState.winner !== 'None' && superTTTState['topMiddle'] === 'blank') ? <TextureIcon sx={styles.overlayImage5} /> : <></>}
+                        {/* TTT Board */}                            
+                        <Grid item sx={
+                            (superTTTState.winner === 'None' && superTTTState.prevMove === 'topMiddle') || (superTTTState.winner === 'None' && superTTTState.prevMove === 'None' && superTTTState['topMiddle'] === 'blank') || (superTTTState.winningCombo.includes('topMiddle')) ? styles.topMiddleSelected : styles.topMiddle
+                            }>
+                            <TTTBoard boardState={boardState2} setBoardState1={setBoardState2} boardID={'topMiddle'} superTTTState={superTTTState} setSuperTTTState={setSuperTTTState} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
+                        </Grid>
                     
                 </Grid>
+            </Grid>
+
+                {/* Top right TTT board */}
+                <Grid item>
+                    {/* Grid container used to hold TTT Board and Symbol of board outcome */}
+                    <Grid container>
+                        {/* Symbol of board outcome */}                            
+                        {superTTTState['topRight'] === 'O' ? <RadioButtonUncheckedIcon sx={styles.overlayImage1} /> : <></>}
+                        {superTTTState['topRight'] === 'X' ? <ClearIcon sx={styles.overlayImage2} /> : <></>}
+                        {(superTTTState.winningCombo.includes('topRight') && (superTTTState['topRight'] === 'O')) ? <CheckIcon sx={styles.overlayImage3} /> : <></>}
+                        {(superTTTState.winningCombo.includes('topRight') && (superTTTState['topRight'] === 'X')) ? <CropFreeOutlinedIcon sx={styles.overlayImage3} /> : <></>}
+                        {superTTTState['topRight'] === 'cat' ? <CopyrightTwoToneIcon sx={styles.overlayImage4} /> : <></>}
+                        {(!superTTTState.winningCombo.includes('topRight') && superTTTState.winner !== 'None' && superTTTState['topRight'] === 'blank') ? <TextureIcon sx={styles.overlayImage5} /> : <></>}
+                        {/* TTT Board */}                            
+                        <Grid item sx={
+                            (superTTTState.winner === 'None' && superTTTState.prevMove === 'topRight') || (superTTTState.winner === 'None' && superTTTState.prevMove === 'None' && superTTTState['topRight'] === 'blank') || (superTTTState.winningCombo.includes('topRight')) ? styles.topRightSelected : styles.topRight
+                            }>
+                            <TTTBoard boardState={boardState3} setBoardState1={setBoardState3} boardID={'topRight'} superTTTState={superTTTState} setSuperTTTState={setSuperTTTState} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+            </Grid>
+            {/* End of First Row of superTTT board */}
+            
+
+            {/* Second row of superTTT board */}
+            <Grid container direction='row' justifyContent={'center'} alignItems={'center'}>
+
+                {/* Middle left */} 
+                <Grid item>
+                    {/* Grid container used to hold TTT Board and Symbol of board outcome */}
+                    <Grid container>
+                    {/* Symbol of board outcome */}                                                        
+                        {superTTTState['middleLeft'] === 'O' ? <RadioButtonUncheckedIcon sx={styles.overlayImage1} /> : <></>}
+                        {superTTTState['middleLeft'] === 'X' ? <ClearIcon sx={styles.overlayImage2} /> : <></>}
+                        {(superTTTState.winningCombo.includes('middleLeft') && (superTTTState['middleLeft'] === 'O')) ? <CheckIcon sx={styles.overlayImage3} /> : <></>}
+                        {(superTTTState.winningCombo.includes('middleLeft') && (superTTTState['middleLeft'] === 'X')) ? <CropFreeOutlinedIcon sx={styles.overlayImage3} /> : <></>}
+                        {superTTTState['middleLeft'] === 'cat' ? <CopyrightTwoToneIcon sx={styles.overlayImage4} /> : <></>}
+                        {(!superTTTState.winningCombo.includes('middleLeft') && superTTTState.winner !== 'None' && superTTTState['middleLeft'] === 'blank') ? <TextureIcon sx={styles.overlayImage5} /> : <></>}
+                        {/* TTT Board */}
+                        <Grid item sx={
+                            (superTTTState.winner === 'None' && superTTTState.prevMove === 'middleLeft') || (superTTTState.winner === 'None' && superTTTState.prevMove === 'None' && superTTTState['middleLeft'] === 'blank') || (superTTTState.winningCombo.includes('middleLeft')) ? styles.middleLeftSelected : styles.middleLeft
+                            }>
+                            <TTTBoard boardState={boardState4} setBoardState1={setBoardState4} boardID={'middleLeft'} superTTTState={superTTTState} setSuperTTTState={setSuperTTTState} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                    
+            
+                {/* Middle middle */}
+                <Grid item>
+                    {/* Grid container used to hold TTT Board and Symbol of board outcome */}
+                    <Grid container>
+                    {/* Symbol of board outcome */}                            
+                        {superTTTState['middleMiddle'] === 'O' ? <RadioButtonUncheckedIcon sx={styles.overlayImage1} /> : <></>}
+                        {superTTTState['middleMiddle'] === 'X' ? <ClearIcon sx={styles.overlayImage2} /> : <></>}
+                        {(superTTTState.winningCombo.includes('middleMiddle') && (superTTTState['middleMiddle'] === 'O')) ? <CheckIcon sx={styles.overlayImage3} /> : <></>}
+                        {(superTTTState.winningCombo.includes('middleMiddle') && (superTTTState['middleMiddle'] === 'X')) ? <CropFreeOutlinedIcon sx={styles.overlayImage3} /> : <></>}
+                        {superTTTState['middleMiddle'] === 'cat' ? <CopyrightTwoToneIcon sx={styles.overlayImage4} /> : <></>}
+                        {(!superTTTState.winningCombo.includes('middleMiddle') && superTTTState.winner !== 'None' && superTTTState['middleMiddle'] === 'blank') ? <TextureIcon sx={styles.overlayImage5} /> : <></>}
+                        {/* TTT Board */}
+                        <Grid item sx={
+                            (superTTTState.winner === 'None' && superTTTState.prevMove === 'middleMiddle') || (superTTTState.winner === 'None' && superTTTState.prevMove === 'None' && superTTTState['middleMiddle'] === 'blank') || (superTTTState.winningCombo.includes('middleMiddle')) ? styles.middleMiddleSelected : styles.middleMiddle
+                            }>
+                            <TTTBoard boardState={boardState5} setBoardState1={setBoardState5} boardID={'middleMiddle'} superTTTState={superTTTState} setSuperTTTState={setSuperTTTState} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+
+                {/* Middle right */}
+                <Grid item>
+                    {/* Grid container used to hold TTT Board and Symbol of board outcome */}
+                    <Grid container>
+                        {/* Symbol of board outcome */}
+                        {superTTTState['middleRight'] === 'O' ? <RadioButtonUncheckedIcon sx={styles.overlayImage1} /> : <></>}
+                        {superTTTState['middleRight'] === 'X' ? <ClearIcon sx={styles.overlayImage2} /> : <></>}
+                        {(superTTTState.winningCombo.includes('middleRight') && (superTTTState['middleRight'] === 'O')) ? <CheckIcon sx={styles.overlayImage3} /> : <></>}
+                        {(superTTTState.winningCombo.includes('middleRight') && (superTTTState['middleRight'] === 'X')) ? <CropFreeOutlinedIcon sx={styles.overlayImage3} /> : <></>}
+                        {superTTTState['middleRight'] === 'cat' ? <CopyrightTwoToneIcon sx={styles.overlayImage4} /> : <></>}
+                        {(!superTTTState.winningCombo.includes('middleRight') && superTTTState.winner !== 'None' && superTTTState['middleRight'] === 'blank') ? <TextureIcon sx={styles.overlayImage5} /> : <></>}
+                        {/* TTT Board */}
+                        <Grid item sx={
+                            (superTTTState.winner === 'None' && superTTTState.prevMove === 'middleRight') || (superTTTState.winner === 'None' && superTTTState.prevMove === 'None' && superTTTState['middleRight'] === 'blank') || (superTTTState.winningCombo.includes('middleRight')) ? styles.middleRightSelected : styles.middleRight
+                            }>
+                            <TTTBoard boardState={boardState6} setBoardState1={setBoardState6} boardID={'middleRight'} superTTTState={superTTTState} setSuperTTTState={setSuperTTTState} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+            </Grid>
+            {/* End of Second Row of superTTT board */}
+
+            {/* Third row of superTTT board */}
+            <Grid container direction='row' justifyContent={'center'} alignItems={'center'}>
+
+                {/* Bottom left */}
+                <Grid item>
+                {/* Grid container used to hold TTT Board and Symbol of board outcome */}
+                    <Grid container>
+                        {/* Symbol of board outcome */}
+                        {superTTTState['bottomLeft'] === 'O' ? <RadioButtonUncheckedIcon sx={styles.overlayImage1} /> : <></>}
+                        {superTTTState['bottomLeft'] === 'X' ? <ClearIcon sx={styles.overlayImage2} /> : <></>}
+                        {(superTTTState.winningCombo.includes('bottomLeft') && (superTTTState['bottomLeft'] === 'O')) ? <CheckIcon sx={styles.overlayImage3} /> : <></>}
+                        {(superTTTState.winningCombo.includes('bottomLeft') && (superTTTState['bottomLeft'] === 'X')) ? <CropFreeOutlinedIcon sx={styles.overlayImage3} /> : <></>}
+                        {superTTTState['bottomLeft'] === 'cat' ? <CopyrightTwoToneIcon sx={styles.overlayImage4} /> : <></>}
+                        {(!superTTTState.winningCombo.includes('bottomLeft') && superTTTState.winner !== 'None' && superTTTState['bottomLeft'] === 'blank') ? <TextureIcon sx={styles.overlayImage5} /> : <></>}
+                        {/* TTT Board */}
+                        <Grid item sx={
+                            (superTTTState.winner === 'None' && superTTTState.prevMove === 'bottomLeft') || (superTTTState.winner === 'None' && superTTTState.prevMove === 'None' && superTTTState['bottomLeft'] === 'blank') || (superTTTState.winningCombo.includes('bottomLeft')) ? styles.bottomLeftSelected : styles.bottomLeft
+                            }>
+                            <TTTBoard boardState={boardState7} setBoardState1={setBoardState7} boardID={'bottomLeft'} superTTTState={superTTTState} setSuperTTTState={setSuperTTTState} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                
+
+                {/* Bottom middle */}
+                <Grid item>
+                    {/* Grid container used to hold TTT Board and Symbol of board outcome */}
+                    <Grid container>
+                        {/* Symbol of board outcome */}
+                        {superTTTState['bottomMiddle'] === 'O' ? <RadioButtonUncheckedIcon sx={styles.overlayImage1} /> : <></>}
+                        {superTTTState['bottomMiddle'] === 'X' ? <ClearIcon sx={styles.overlayImage2} /> : <></>}
+                        {(superTTTState.winningCombo.includes('bottomMiddle') && (superTTTState['bottomMiddle'] === 'O')) ? <CheckIcon sx={styles.overlayImage3} /> : <></>}
+                        {(superTTTState.winningCombo.includes('bottomMiddle') && (superTTTState['bottomMiddle'] === 'X')) ? <CropFreeOutlinedIcon sx={styles.overlayImage3} /> : <></>}
+                        {superTTTState['bottomMiddle'] === 'cat' ? <CopyrightTwoToneIcon sx={styles.overlayImage4} /> : <></>}
+                        {(!superTTTState.winningCombo.includes('bottomMiddle') && superTTTState.winner !== 'None' && superTTTState['bottomMiddle'] === 'blank') ? <TextureIcon sx={styles.overlayImage5} /> : <></>}
+                        {/* TTT Board */}
+                        <Grid item sx={
+                            (superTTTState.winner === 'None' && superTTTState.prevMove === 'bottomMiddle') || (superTTTState.winner === 'None' && superTTTState.prevMove === 'None' && superTTTState['bottomMiddle'] === 'blank') || (superTTTState.winningCombo.includes('bottomMiddle')) ? styles.bottomMiddleSelected : styles.bottomMiddle
+                            }>
+                            <TTTBoard boardState={boardState8} setBoardState1={setBoardState8} boardID={'bottomMiddle'} superTTTState={superTTTState} setSuperTTTState={setSuperTTTState} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
+                        </Grid>
+
+                    </Grid>
+                </Grid>
+
+
+                {/* Bottom right */}
+                <Grid item>
+
+                    {/* Grid container used to hold TTT Board and Symbol of board outcome */}
+                    <Grid container>
+                        {/* Symbol of board outcome */}
+                        {superTTTState['bottomRight'] === 'O' ? <RadioButtonUncheckedIcon sx={styles.overlayImage1} /> : <></>}
+                        {superTTTState['bottomRight'] === 'X' ? <ClearIcon sx={styles.overlayImage2} /> : <></>}
+                        {(superTTTState.winningCombo.includes('bottomRight') && (superTTTState['bottomRight'] === 'O')) ? <CheckIcon sx={styles.overlayImage3} /> : <></>}
+                        {(superTTTState.winningCombo.includes('bottomRight') && (superTTTState['bottomRight'] === 'X')) ? <CropFreeOutlinedIcon sx={styles.overlayImage3} /> : <></>}
+                        {superTTTState['bottomRight'] === 'cat' ? <CopyrightTwoToneIcon sx={styles.overlayImage4} /> : <></>}
+                        {(!superTTTState.winningCombo.includes('bottomRight') && superTTTState.winner !== 'None' && superTTTState['bottomRight'] === 'blank') ? <TextureIcon sx={styles.overlayImage5} /> : <></>}
+                        {/* TTT Board */}
+                        <Grid item sx={
+                            (superTTTState.winner === 'None' && superTTTState.prevMove === 'bottomRight') || (superTTTState.winner === 'None' && superTTTState.prevMove === 'None' && superTTTState['bottomRight'] === 'blank') || (superTTTState.winningCombo.includes('bottomRight')) ? styles.bottomRightSelected : styles.bottomRight
+                            }>
+                            <TTTBoard boardState={boardState9} setBoardState1={setBoardState9} boardID={'bottomRight'} superTTTState={superTTTState} setSuperTTTState={setSuperTTTState} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                    
+
+            </Grid>
+            {/* End of Third Row of superTTT board */}
+
+
+            {/* Container used to arrange the Reset and How to Play buttons in a column */}
+            <Grid container direction='row' justifyContent={'center'} marginTop={'10px'} marginBottom={'20px'} spacing={1}>
+
 
                 {/* Restart button */}
-                <Grid item sx={{padding: '0px'}}>
+                <Grid item>
                     <Button variant='contained' onClick={() => {
                         restartGame(superTTTState, setSuperTTTState, initialState, playerTurn, setPlayerTurn, setBoardState1, setBoardState2, setBoardState3, setBoardState4, setBoardState5, setBoardState6, setBoardState7, setBoardState8, setBoardState9);
                     }}>Reset</Button>
                 </Grid>
 
                 {/* How to Play button */}
-                <Grid item sx={{marginTop: '5px'}}>
+                <Grid item>
                     <TempDrawer DrawerContent={
-                        <Box role='presentation' sx={{backgroundColor: '#333842', height: '100%', padding: '10px'}}>
+                        <Box role='presentation' sx={{backgroundColor: '#333842', padding: '10px', height: '100%'}}>
                             <YoutubeEmbed embedId='_Na3a1ZrX7c' />
                         </Box>
                         }
                     bttnText={'How to play'}
                     anchorTo={'right'} />
                         
-                </Grid>
+                </Grid> 
             </Grid>
-        </Grid>
-        {/* End of item that holds the Reset and How to Play buttons */}
-
         
-    </Grid>
-    </>);
+
+        {/* End of item that holds the Reset and How to Play buttons */}        
+        </Grid>
+      {/* </div> */}
+    </div>
+
+</div>);
 }
 
 function restartGame(superTTTState, setSuperTTTState, initialState, playerTurn, setPlayerTurn,
