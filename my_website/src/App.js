@@ -23,7 +23,12 @@ function App() {
 
   // const urlHome = 'https://thejd-droid.github.io/TheJDProjects/'
 
-   return (
+   return (<>
+
+    <div className="app-background">
+      <div className="app-background-header" />
+      <div className="app-background-body" />
+    </div>
     
     <div className="App">
         {/* <BrowserRouter> */}
@@ -62,6 +67,7 @@ function App() {
           {/* </BrowserRouter> */}
         </HashRouter>
     </div>
+    </>
   );
   
 }

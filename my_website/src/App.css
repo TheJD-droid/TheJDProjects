@@ -3,12 +3,15 @@
   outline: 1px solid red;
 } */
 
+
 .App {
   text-align: center;
-  min-width: fit-content;
   background-color: #333842;
   min-height: 100vh;
+  width: 100%;
   /* border: 4px red solid; */
+  box-sizing: border-box;
+
 }
 
 .App-logo {
@@ -25,7 +28,8 @@
 
 .App-header {
   background-color: #23272e;
-  min-height: 10vh;
+  min-height: 45px;
+  height: 10vh;
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -33,13 +37,15 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .App-body {
   background-color: #333842;
   /* min-height: 90vh; */
-  min-height: fit-content;
-  min-width: fit-content;
+  /* min-height: fit-content;
+  min-width: fit-content; */
   height: auto;
   display: flex;
   flex-direction: column;
@@ -47,6 +53,8 @@
   font-size: calc(10px + 2vmin);
   color: white;
   /* border: 4px green solid; */
+  box-sizing: border-box;
+
 
   
 }
@@ -70,6 +78,20 @@ html, body, #root{
   height: 100%;
   margin: 0;
   /* background-color: #333842; */
+  /* padding: 0; */
+  /* overflow-y: auto; */
+    box-sizing: border-box;
+
+
+}
+
+/* body {
+  padding-right: 0 !important;
+} */
+
+#root {
+  width: 100%;
+  box-sizing: border-box;
 
 }
 
@@ -77,6 +99,8 @@ html, body, #root{
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
+
 }
 
 .page-content {
@@ -84,4 +108,31 @@ html, body, #root{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+.app-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Match App-header */
+.app-background-header {
+  min-height: 45px;
+  background-color: #23272e; 
+  height: 10vh;
+  box-sizing: border-box;
+}
+
+/* Match App-body */
+.app-background-body {
+  background-color: #333842; 
+  flex: 1;
+  box-sizing: border-box;
 }

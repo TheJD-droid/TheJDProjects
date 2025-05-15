@@ -74,8 +74,8 @@ function TicTacToe() {
 
 
 
-    return (<div className='horizontal-scroll-container'>
-    {/* return (<div> */}
+    // return (<div className='horizontal-scroll-container'>
+    return (<div>
     {/* Fireworks animation, only occurs when the Modal is open. */}
     {openModal && superTTTState.winner !== 'cat' ? <WinnerAnimation /> : <></>}
     {/* Modal to indicate who won */}
@@ -85,7 +85,8 @@ function TicTacToe() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         //Makes Backrop of modal transparent, so the WinnerAnimation can be seen more easily behind the modal
-        componentsProps={{ backdrop: { style: { backgroundColor: "transparent" } } }} 
+        componentsProps={{ backdrop: { style: { backgroundColor: "transparent" } } }}
+        // disableScrollLock 
     >
         <Box sx={modalStyle}>
             <Typography id="modal-modal-title" variant="h6" component="h2">
@@ -100,12 +101,14 @@ function TicTacToe() {
 
     {/* Used to contain everything to the size of the screen, while allowing scrolling for the TTT board when it's 
     minimum width leaves it wider than the screen */}
-    {/* <div className="horizontal-scroll-container"> */}
+    <div className="horizontal-scroll-container">
         
         {/* Grid containing contents of the page, including the board, Reset button, and How to Play button */}
         <Grid container justifyContent={'center'} alignItems={'center'} direction='column' minWidth={'520px'}>
             <Grid item>
-                <h3>Tic Tac Toe</h3>
+                {/* <h6>Tic Tac Toe</h6> */}
+                {/* <h2>Tic Tac Toe</h2> */}
+                <p><strong>Super Tic Tac Toe</strong></p>
             </Grid>
             {/*First row of superTTT board*/}
             <Grid container direction='row' justifyContent={'center'} alignItems={'center'}>
@@ -329,9 +332,7 @@ function TicTacToe() {
                 {/* How to Play button */}
                 <Grid item>
                     <TempDrawer DrawerContent={
-                        <Box role='presentation' sx={{backgroundColor: '#333842', padding: '10px', height: '100%'}}>
-                            <YoutubeEmbed embedId='_Na3a1ZrX7c' />
-                        </Box>
+                                                    <YoutubeEmbed embedId='_Na3a1ZrX7c' />
                         }
                     bttnText={'How to play'}
                     anchorTo={'right'} />
@@ -343,7 +344,7 @@ function TicTacToe() {
         {/* End of item that holds the Reset and How to Play buttons */}        
         </Grid>
       {/* </div> */}
-    {/* </div> */}
+    </div>
 
 </div>);
 }
