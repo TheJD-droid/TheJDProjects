@@ -27,6 +27,7 @@ const modalStyle = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 400,
+    maxWidth: '70vw',
     color: 'white',
     backgroundColor: '#333842',
     border: '2px solid',
@@ -75,7 +76,7 @@ function TicTacToe() {
 
 
     // return (<div className='horizontal-scroll-container'>
-    return (<div>
+    return (<>
     {/* Fireworks animation, only occurs when the Modal is open. */}
     {openModal && superTTTState.winner !== 'cat' ? <WinnerAnimation /> : <></>}
     {/* Modal to indicate who won */}
@@ -99,22 +100,42 @@ function TicTacToe() {
     </Modal>
 
 
+    
+
     {/* Used to contain everything to the size of the screen, while allowing scrolling for the TTT board when it's 
     minimum width leaves it wider than the screen */}
-    <div className="horizontal-scroll-container">
+    <div className="horizontal-scroll-container" 
+  style={{
+    overflowX: 'auto',
+    maxWidth: '100%', // or 100%
+    position: 'relative',
+    whiteSpace: 'nowrap', // optional
+    
+  }}>
+
+
+        <div className='wide-content'
+        style={{
+        display: 'inline-block', // important to not collapse width
+        minWidth: 'fit-content',       // or use fit-content
+        whiteSpace: 'nowrap',     // optional for inline layout
         
+        // overflowX: 'auto',
+        }}>
+
         {/* Grid containing contents of the page, including the board, Reset button, and How to Play button */}
-        <Grid container justifyContent={'center'} alignItems={'center'} direction='column' minWidth={'520px'}>
-            <Grid item>
-                {/* <h6>Tic Tac Toe</h6> */}
-                {/* <h2>Tic Tac Toe</h2> */}
-                <p><strong>Super Tic Tac Toe</strong></p>
-            </Grid>
+        <Box>
+            <p><strong>Super Tic Tac Toe</strong></p>
+            
             {/*First row of superTTT board*/}
-            <Grid container direction='row' justifyContent={'center'} alignItems={'center'}>
+            <Box 
+            display={'block'}
+            minWidth={'500px'}
+            >
                 
                 {/* Top left TTT Board */}
-                <Grid item>
+                <Box display={'inline-block'}
+                minWidth={'166px'}>
                     {/* Grid container used to hold TTT Board and Symbol of board outcome */}
                     <Grid container>
                         {/* Symbol of board outcome */}
@@ -131,10 +152,10 @@ function TicTacToe() {
                             <TTTBoard boardState={boardState1} setBoardState1={setBoardState1} boardID={'topLeft'} superTTTState={superTTTState} setSuperTTTState={setSuperTTTState} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
                         </Grid>
                     </Grid>
-                </Grid>
+                </Box>
 
                 {/* Top middle TTT board */}
-                <Grid item>
+                <Box display={'inline-block'} minWidth={'166px'}>
                     {/* Grid container used to hold TTT Board and Symbol of board outcome */}
                     <Grid container>
                         {/* Symbol of board outcome */}                            
@@ -151,11 +172,11 @@ function TicTacToe() {
                             <TTTBoard boardState={boardState2} setBoardState1={setBoardState2} boardID={'topMiddle'} superTTTState={superTTTState} setSuperTTTState={setSuperTTTState} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
                         </Grid>
                     
-                </Grid>
-            </Grid>
+                    </Grid>
+                </Box>
 
                 {/* Top right TTT board */}
-                <Grid item>
+                <Box display={'inline-block'} minWidth={'166px'}>
                     {/* Grid container used to hold TTT Board and Symbol of board outcome */}
                     <Grid container>
                         {/* Symbol of board outcome */}                            
@@ -172,17 +193,19 @@ function TicTacToe() {
                             <TTTBoard boardState={boardState3} setBoardState1={setBoardState3} boardID={'topRight'} superTTTState={superTTTState} setSuperTTTState={setSuperTTTState} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
                         </Grid>
                     </Grid>
-                </Grid>
+                </Box>
 
-            </Grid>
+            </Box>
             {/* End of First Row of superTTT board */}
             
 
             {/* Second row of superTTT board */}
-            <Grid container direction='row' justifyContent={'center'} alignItems={'center'}>
+            <Box display={'block'} 
+            // flexWrap={"nowrap"}
+            >
 
                 {/* Middle left */} 
-                <Grid item>
+                <Box display={'inline-block'} minWidth={'166px'}>
                     {/* Grid container used to hold TTT Board and Symbol of board outcome */}
                     <Grid container>
                     {/* Symbol of board outcome */}                                                        
@@ -199,11 +222,11 @@ function TicTacToe() {
                             <TTTBoard boardState={boardState4} setBoardState1={setBoardState4} boardID={'middleLeft'} superTTTState={superTTTState} setSuperTTTState={setSuperTTTState} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
                         </Grid>
                     </Grid>
-                </Grid>
+                </Box>
                     
             
                 {/* Middle middle */}
-                <Grid item>
+                <Box display={'inline-block'} minWidth={'166px'}>
                     {/* Grid container used to hold TTT Board and Symbol of board outcome */}
                     <Grid container>
                     {/* Symbol of board outcome */}                            
@@ -220,11 +243,11 @@ function TicTacToe() {
                             <TTTBoard boardState={boardState5} setBoardState1={setBoardState5} boardID={'middleMiddle'} superTTTState={superTTTState} setSuperTTTState={setSuperTTTState} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
                         </Grid>
                     </Grid>
-                </Grid>
+                </Box>
 
 
                 {/* Middle right */}
-                <Grid item>
+                <Box display={'inline-block'} minWidth={'166px'}>
                     {/* Grid container used to hold TTT Board and Symbol of board outcome */}
                     <Grid container>
                         {/* Symbol of board outcome */}
@@ -241,16 +264,15 @@ function TicTacToe() {
                             <TTTBoard boardState={boardState6} setBoardState1={setBoardState6} boardID={'middleRight'} superTTTState={superTTTState} setSuperTTTState={setSuperTTTState} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
                         </Grid>
                     </Grid>
-                </Grid>
+                </Box>
 
-            </Grid>
+            </Box>
             {/* End of Second Row of superTTT board */}
 
             {/* Third row of superTTT board */}
-            <Grid container direction='row' justifyContent={'center'} alignItems={'center'}>
-
+            <Box display={'block'}>
                 {/* Bottom left */}
-                <Grid item>
+                <Box display={'inline-block'} minWidth={'166px'}>
                 {/* Grid container used to hold TTT Board and Symbol of board outcome */}
                     <Grid container>
                         {/* Symbol of board outcome */}
@@ -267,11 +289,11 @@ function TicTacToe() {
                             <TTTBoard boardState={boardState7} setBoardState1={setBoardState7} boardID={'bottomLeft'} superTTTState={superTTTState} setSuperTTTState={setSuperTTTState} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
                         </Grid>
                     </Grid>
-                </Grid>
+                </Box>
                 
 
                 {/* Bottom middle */}
-                <Grid item>
+                <Box display={'inline-block'} minWidth={'166px'}>
                     {/* Grid container used to hold TTT Board and Symbol of board outcome */}
                     <Grid container>
                         {/* Symbol of board outcome */}
@@ -289,12 +311,11 @@ function TicTacToe() {
                         </Grid>
 
                     </Grid>
-                </Grid>
+                </Box>
 
 
                 {/* Bottom right */}
-                <Grid item>
-
+                <Box display={'inline-block'} minWidth={'166px'}>
                     {/* Grid container used to hold TTT Board and Symbol of board outcome */}
                     <Grid container>
                         {/* Symbol of board outcome */}
@@ -311,10 +332,10 @@ function TicTacToe() {
                             <TTTBoard boardState={boardState9} setBoardState1={setBoardState9} boardID={'bottomRight'} superTTTState={superTTTState} setSuperTTTState={setSuperTTTState} playerTurn={playerTurn} setPlayerTurn={setPlayerTurn}/>
                         </Grid>
                     </Grid>
-                </Grid>
+                </Box>
                     
 
-            </Grid>
+            </Box>
             {/* End of Third Row of superTTT board */}
 
 
@@ -332,7 +353,7 @@ function TicTacToe() {
                 {/* How to Play button */}
                 <Grid item>
                     <TempDrawer DrawerContent={
-                                                    <YoutubeEmbed embedId='_Na3a1ZrX7c' />
+                            <YoutubeEmbed embedId='_Na3a1ZrX7c' />
                         }
                     bttnText={'How to play'}
                     anchorTo={'right'} />
@@ -342,11 +363,11 @@ function TicTacToe() {
         
 
         {/* End of item that holds the Reset and How to Play buttons */}        
-        </Grid>
-      {/* </div> */}
+        </Box>
+      </div>
     </div>
 
-</div>);
+</>);
 }
 
 function restartGame(superTTTState, setSuperTTTState, initialState, playerTurn, setPlayerTurn,

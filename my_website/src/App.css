@@ -3,14 +3,18 @@
   outline: 1px solid red;
 } */
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
 .App {
   text-align: center;
   background-color: #333842;
   min-height: 100vh;
-  width: 100%;
-  /* border: 4px red solid; */
+  min-width: 100%;
+  /* border: 4px green solid; */
   box-sizing: border-box;
+  /* max-width: 520px; */
 
 }
 
@@ -54,6 +58,7 @@
   color: white;
   /* border: 4px green solid; */
   box-sizing: border-box;
+  max-width: 100vw;
 
 
   
@@ -131,7 +136,7 @@ html, body, #root{
 }
 
 /* Match App-body */
-.app-background-body {
+ .app-background-body {
   background-color: #333842; 
   flex: 1;
   box-sizing: border-box;

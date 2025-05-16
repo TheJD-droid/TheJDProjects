@@ -33,10 +33,11 @@ function App() {
     <div className="App">
         {/* <BrowserRouter> */}
         <HashRouter basename=''>
+        <div className='app-container'>
         <div className="App-header">
               <Navbar />
         </div>
-
+        
         <div className='page-content'>
 
           <div className="App-body">
@@ -65,6 +66,7 @@ function App() {
           </div>
         </div>
           {/* </BrowserRouter> */}
+        </div>
         </HashRouter>
     </div>
     </>

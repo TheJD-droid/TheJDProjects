@@ -36,6 +36,7 @@ const modalStyle = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
+    maxWidth: '70vw',
     width: 400,
     color: 'white',
     backgroundColor: '#333842',
@@ -359,6 +360,7 @@ export default function BalloonPage() {
         <p>Can you pop them all?</p>
     </TabPanel>
     <TabPanel value={selected} index={1}>
+        
         
 
         <Grid container direction='column' alignItems='center' style={{margin: '5px'}}>

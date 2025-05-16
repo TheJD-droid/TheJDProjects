@@ -27,7 +27,7 @@ export default function TempDrawer({DrawerContent, bttnText, anchorTo, backgroun
       <div>
         <Button variant='contained' onClick={toggleDrawer(true)}>{bttnText}</Button>
         <Drawer open={open} onClose={toggleDrawer(false)} anchor={anchorTo} sx={{color: 'red'}}>
-          <Box role='presentation' sx={{backgroundColor: '#333842', padding: '10px', height: '100%'}}>
+          <Box role='presentation' sx={{backgroundColor: '#333842', padding: '10px'}}>
             {DrawerContent}
             <div style={{padding: '10px'}}>
               <Button variant='contained' onClick={toggleDrawer(false)} sx={{backgroundColor: colors.red[700], '&:hover': {backgroundColor: colors.red[900]}}}>Close Panel</Button>
