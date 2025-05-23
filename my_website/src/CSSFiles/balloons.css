@@ -1,3 +1,9 @@
+
+:root {
+  --rotationalOffset: 30; 
+}
+
+
 div.pageContainer { margin:0px; background:hsl(70, 31%, 85%); text-align:center; }
 
 
@@ -20,19 +26,7 @@ div.pageContainer { margin:0px; background:hsl(70, 31%, 85%); text-align:center;
     transform-origin:bottom center;
 }
 
-/*
-.balloon:nth-child(2){ background:hsl(245,40%,65%); animation-duration:3.5s; }
-.balloon:nth-child(2):before { color:hsl(245,40%,65%);  }
 
-.balloon:nth-child(3){ background:hsl(139,50%,60%); animation-duration:3s; }
-.balloon:nth-child(3):before { color:hsl(139,30%,50%);  }
-
-.balloon:nth-child(4){ background:hsl(59,50%,58%); animation-duration:4.5s; }
-.balloon:nth-child(4):before { color:hsl(59,30%,52%);  }
-
-.balloon:nth-child(5){ background:hsl(23,55%,57%); animation-duration:5s; }
-.balloon:nth-child(5):before { color:hsl(23,44%,46%);  } 
-*/
 
 
 @keyframes balloons {
@@ -67,13 +61,6 @@ div.pageContainer { margin:0px; background:hsl(70, 31%, 85%); text-align:center;
 
 
 
-/* 
-@keyframes balloons {
-    0%,100%{ transform:translateY(0) rotate(-4deg); }
-    50%{ transform:translateY(-25px) rotate(4deg); }
-  }
- */
-
 @keyframes pop {
     0%{
         opacity: 1;
@@ -87,73 +74,8 @@ div.pageContainer { margin:0px; background:hsl(70, 31%, 85%); text-align:center;
       }
   }
 
-  @keyframes spotHit1 {
-    
-    0%{
-        opacity: 0;
-        transform: translateZ(0) scale(5, 5) rotate(-10deg);
-        
-      }
-      /* 25%{
-        opacity: 1;
-        transform: translateZ(0) scale(1, 1) rotate(-8deg);
-        
-      } */
-      50%{
-        opacity: 1;
-        transform: translateZ(0) scale(1, 1) rotate(-270deg);
-        
-      }
-      /* 75%{
-        opacity: 1;
-        transform: translateZ(0) scale(1, 1) rotate(-8deg);
-        
-      } */
-      100%{
-        /* opacity: 0;
-        transform: translateZ(0) scale(1, 1) rotate(-270deg);
-         */
-        opacity: 0;
-        transform: translateZ(0) scale(1, 1) rotate(-270deg);
-        
-      }
-      
-      
-  }
 
-  @keyframes spotHit2 {
-    
-    0%{
-        opacity: 0;
-        transform: translateZ(0) scale(5, 5) rotate(-10deg);
-        
-      }
-      /* 25%{
-        opacity: 1;
-        transform: translateZ(0) scale(1, 1) rotate(-8deg);
-        
-      } */
-      50%{
-        opacity: 1;
-        transform: translateZ(0) scale(1, 1) rotate(-270deg);
-        
-      }
-      /* 75%{
-        opacity: 1;
-        transform: translateZ(0) scale(1, 1) rotate(-8deg);
-        
-      } */
-      100%{
-        /* opacity: 0;
-        transform: translateZ(0) scale(1, 1) rotate(-270deg);
-         */
-        opacity: 0;
-        transform: translateZ(0) scale(1, 1) rotate(-270deg);
-        
-      }
-      
-      
-  }
+
 
   .balloon.popped {
     animation: pop 5s cubic-bezier(0.16, 0.87, 0.48, 0.99) forwards;
@@ -182,43 +104,6 @@ div.pageContainer { margin:0px; background:hsl(70, 31%, 85%); text-align:center;
 	height: 100%;
     z-index: -100;
 }
-/* 
-    .balloon::before {
-       
-        content:"▲";
-        font-size:20px;
-        color:hsl(215,30%,50%);
-        display:block;
-        text-align:center;
-        width:100%;
-        position:absolute;
-        bottom:-12px;
-        z-index:-100;
-
-}
- */
- /* content:"▲";
-    font-size:20px;
-    color:hsl(215,30%,50%);
-    display:block;
-    text-align:center;
-    width:100%;
-    position:absolute;
-    bottom:-12px;
-    z-index:-100; */
-/* 
-.balloon:nth-child(2){ background:hsl(245,40%,65%); }
-.balloon:nth-child(2):before { color:hsl(245,40%,65%);  }
-
-.balloon:nth-child(3){ background:hsl(139,50%,60%); }
-.balloon:nth-child(3):before { color:hsl(139,30%,50%);  }
-
-.balloon:nth-child(4){ background:hsl(59,50%,58%); }
-.balloon:nth-child(4):before { color:hsl(59,30%,52%);  }
-
-.balloon:nth-child(5){ background:hsl(23,55%,57%); }
-.balloon:nth-child(5):before { color:hsl(23,44%,46%);  }  
-*/
 
 
 
@@ -227,22 +112,121 @@ div.pageContainer { margin:0px; background:hsl(70, 31%, 85%); text-align:center;
     
 }
 
-/* 
-.popping:before {
-	background:
-		linear-gradient(-50deg,hsla(0,0%,80%,0) 68%,hsl(0,0%,100%),hsla(0,0%,80%,0) 72%) 100% 0 / 75% 40%,
-		linear-gradient(-20deg,hsla(0,0%,80%,0) 67%,hsl(0,0%,100%),hsla(0,0%,80%,0) 73%) 100% 0 / 75% 100%,
-		linear-gradient(-80deg,hsla(0,0%,80%,0) 90%,hsl(0,0%,100%),hsla(0,0%,80%,0) 96%) 100% 100% / 80% 50%,
-		linear-gradient(10deg,hsla(0,0%,80%,0) 44%,hsl(0,0%,100%),hsla(0,0%,80%,0) 50%) 100% 0 / 50% 100%,
-		linear-gradient(-30deg,hsla(0,0%,80%,0) 21%,hsl(0,0%,100%),hsla(0,0%,80%,0) 27%) 20% 0 / 40% 100%,
-		linear-gradient(110deg,hsla(0,0%,80%,0) 47%,hsl(0,0%,100%),hsla(0,0%,80%,0) 53%) 0 100% / 100% 30%,
-		linear-gradient(-5deg,hsla(0,0%,70%,0) 55%,hsl(0,0%,70%),hsla(0,0%,70%,0) 62%) 100% 0 / 35% 100%,
-		linear-gradient(25deg,hsla(0,0%,70%,0) 32%,hsl(0,0%,70%),hsla(0,0%,70%,0) 39%) 100% 0 / 50% 100%,
-		linear-gradient(20deg,hsla(0,0%,70%,0) 22%,hsl(0,0%,70%),hsla(0,0%,70%,0) 29%) 100% 0 / 40% 100%;
-	background-repeat: no-repeat;
-	content: "";
-	clip-path: circle(50% at 50% 50%);
-	transition: clip-path 0.1s ease-in-out;
-	width: 100%;
-	height: 100%;
-} */
+
+
+
+  @keyframes spotHit1 {
+    
+    0%{
+        opacity: 0;
+        transform: translate(35px, -80px) translateZ(0) scale(3) rotate(-40deg);
+        
+      }
+      50%{
+        opacity: 1;
+        transform: translate(35px, 50px) translateZ(0) scale(1) rotate(-340deg);
+        
+      }
+      100%{
+        opacity: 0;
+        transform: translate(35px, 50px) scale(1) translateZ(0) rotate(-340deg);
+
+        
+      }
+      
+  }
+
+
+
+  @keyframes spotHit2 {
+    
+    0%{
+        opacity: 0;
+        transform: translate(60px, -80px) translateZ(0) scale(3) rotate(-100deg);
+        
+      }
+      50%{
+        opacity: 1;
+        transform: translate(60px, 40px) translateZ(0) scale(1) rotate(-500deg);
+        
+      }
+      100%{
+        opacity: 0;
+        transform: translate(60px, 40px) scale(1) translateZ(0) rotate(-500deg);
+
+        
+      }
+      
+      
+  }
+
+
+   @keyframes spotHit3 {
+    
+    0%{
+        opacity: 0;
+        transform: translate(35px, -80px) translateZ(0) scale(3) rotate(-340deg);
+        
+      }
+      50%{
+        opacity: 1;
+        transform: translate(35px, 50px) translateZ(0) scale(1) rotate(-530deg);
+        
+      }
+      100%{
+        opacity: 0;
+        transform: translate(35px, 50px) scale(1) translateZ(0) rotate(-530deg);
+
+        
+      }
+      
+      
+  }
+
+
+
+  @keyframes spotHit4 {
+    
+    0%{
+        opacity: 0;
+        transform: translate(35px, -80px) translateZ(0) scale(3) rotate(-340deg);
+        
+      }
+      50%{
+        opacity: 1;
+        transform: translate(35px, 50px) translateZ(0) scale(1) rotate(-600deg);
+        
+      }
+      100%{
+        opacity: 0;
+        transform: translate(35px, 50px) scale(1) translateZ(0) rotate(-600deg);
+
+        
+      }
+      
+      
+  }
+
+
+
+  @keyframes spotHit5 {
+    
+    0%{
+        opacity: 0;
+        transform: translate(35px, -80px) translateZ(0) scale(3) rotate(40deg);
+        
+      }
+      50%{
+        opacity: 1;
+        transform: translate(45px, 50px) translateZ(0) scale(1) rotate(-440deg);
+        
+      }
+      100%{
+        opacity: 0;
+        transform: translate(45px, 50px) scale(1) translateZ(0) rotate(-440deg);
+
+        
+      }
+      
+      
+  }

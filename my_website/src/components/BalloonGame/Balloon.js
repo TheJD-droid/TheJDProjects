@@ -1,11 +1,15 @@
 import '../../CSSFiles/balloons.css'
 import React, { useEffect, useCallback } from 'react';
 import balloonPopSound from '../../assets/balloonpop.mp3';
-import ClearIcon from '@mui/icons-material/Clear';
+import DartIcon from './DartIcon';
+
 
 
 export default function Balloon(props) {
 
+    
+
+    
 
     const randomColor = useCallback(() => {
         // console.log('randomColor called')
@@ -32,6 +36,26 @@ export default function Balloon(props) {
         return (`${duration}s`)
     }
 
+    // Pick a random number (between 1 and 5) that is not equal to the number passed as an argument
+    function pickRandNotNum(num) {
+        
+        // Numbers that can be chosen
+        let possibleNumbers = [1,2,3,4,5];
+        
+        // Checks if num is among possible numbers
+        const index = possibleNumbers.indexOf(num)
+        
+        // If num is in possibleNumbers, remove it
+        if (index > -1) {
+            possibleNumbers.splice(index, 1)
+        }
+
+        // Pick a random number from among the remaining possibleNumbers
+        let randomNum = Math.floor(possibleNumbers.length * Math.random());
+        
+        return possibleNumbers[randomNum];
+    }
+
 
 
     const [balloonState, setBalloonState] = React.useState('balloon');
@@ -40,7 +64,7 @@ export default function Balloon(props) {
     const [chosenDuration, setChosenDuration] = React.useState(() => {return randomAnimationDuration()});
     const [hitAnimation, setHitAnimation] = React.useState(0);
     const [popDuration, setPopDuration] = React.useState(() => {return randomPopDuration()});
-
+    // const [isHit, setIsHit] = React.useState(0)
 
     function playSound() {
         new Audio(balloonPopSound).play()
@@ -84,15 +108,9 @@ export default function Balloon(props) {
 
     useEffect(() => {
         if ((props.toBePopped === props.idNum)) {
-            if (hitAnimation === 0) {
-                setHitAnimation(1)
-            }
-            else if (hitAnimation === 1) {
-                setHitAnimation(2)
-            }
-            else if (hitAnimation === 2) {
-                setHitAnimation(1)
-            }
+            
+            setHitAnimation(pickRandNotNum(hitAnimation))
+
             props.handlePop(-1)
         }
     }, [props.toBePopped, props.idNum, props, hitAnimation])
@@ -186,8 +204,9 @@ export default function Balloon(props) {
 
     return (
         <>
-        {/* <ClearIcon style={(animationFlag) ? style.onHit : style.notShowing} /> */}
-        {props.idNum === -2 ? <></> : <ClearIcon style={isHit(hitAnimation)} 
+        {/* {props.idNum === -2 ? <></> : <ClearIcon style={isHit(hitAnimation)}  */}
+        {props.idNum === -2 ? <></> : <DartIcon outerStyle={getHitAnimation(hitAnimation)}
+
         // onAnimationStart={(e) => {
         //     // props.handleSetHitAnimationInProgress(true)
         //     e.stopPropagation();
@@ -198,7 +217,6 @@ export default function Balloon(props) {
         //     e.stopPropagation();
         // }} 
         />}
-        {/* <ClearIcon style={style.onHit} /> */}
         <div className={props.idNum === -2 ? 'sliderBalloon' : balloonState} style={balloonState === 'balloon popped' ? style.popped : props.idNum === -2 ? style.sliderBalloon : style.default}>
             <div style={props.idNum === -2 ? style.sliderBalloonAfter : style.balloonAfter}>
             ▲
@@ -214,18 +232,14 @@ export default function Balloon(props) {
 
 
 
-function isHit(hitMarker) {
-    
-        if (hitMarker === 1) {
-            return style_outer.onHit1;
-        }
-        else if (hitMarker === 2) {
-            return style_outer.onHit2;
-        }
-        else {
-            return style_outer.notShowing
-        }
+function getHitAnimation(hitMarker) {
 
+
+    
+
+
+    return style_outer[`onHit${hitMarker}`]
+    
 
 }
 
@@ -234,31 +248,59 @@ const style_outer = {
         
     
 
-    notShowing: {
+    onHit0: {
+            width: '0px',
+            height: '0px',
             position: 'absolute',
             zIndex: '11',
-            color: 'red',
-            fontSize: 60,
             opacity: 0,
+            transform: 'translate(35px, 50px)',
             
         },
 
     onHit1: {
+        width: '0', 
+        height: '0',
         position: 'absolute',
         zIndex: '11',
-        color: 'black',
-        fontSize: 60,
-        opacity: 1,
+        transform: 'translate(35px, 50px)',
         animation: 'spotHit1 1s cubic-bezier(0.16, 0.87, 0.48, 0.99) forwards'
-        
+
     },
     onHit2: {
+        width: '0', 
+        height: '0',
         position: 'absolute',
         zIndex: '11',
-        color: 'black',
-        fontSize: 60,
-        opacity: 1,
+        transform: 'translate(35px, 50px)',
         animation: 'spotHit2 1s cubic-bezier(0.16, 0.87, 0.48, 0.99) forwards'
-        
+
+    },
+    onHit3: {
+        width: '0', 
+        height: '0',
+        position: 'absolute',
+        zIndex: '11',
+        transform: 'translate(35px, 50px)',
+        animation: 'spotHit3 1s cubic-bezier(0.16, 0.87, 0.48, 0.99) forwards'
+
+    },
+    onHit4: {
+        width: '0', 
+        height: '0',
+        position: 'absolute',
+        zIndex: '11',
+        transform: 'translate(35px, 50px)',
+        animation: 'spotHit4 1s cubic-bezier(0.16, 0.87, 0.48, 0.99) forwards'
+
+    },
+    onHit5: {
+        width: '0', 
+        height: '0',
+        position: 'absolute',
+        zIndex: '11',
+        transform: 'translate(35px, 50px)',
+        animation: 'spotHit5 1s cubic-bezier(0.16, 0.87, 0.48, 0.99) forwards'
+
     },
 }

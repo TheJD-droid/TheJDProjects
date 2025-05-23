@@ -354,21 +354,24 @@ export default function BalloonPage() {
 
         </Tabs>
     </div>
-    <TabPanel value={selected} index={0} style={{width: '80vw'}}>
+    <TabPanel value={selected} index={0} style={{width: '100%'}}>
         <h3>Test your luck with the Balloon Game!</h3>
         <p>In this game you flip a coin and throw a dart randomly at balloons on a dartboard. At the start of the game the dartboard is filled with balloons. If the flipped coin lands heads then you throw a dart at the dartboard. However, if the coin lands tails then the game is over. Your score is however many balloons you managed to pop. </p>
         <p>Can you pop them all?</p>
     </TabPanel>
-    <TabPanel value={selected} index={1}>
+    <TabPanel value={selected} index={1} >
         
         
 
-        <Grid container direction='column' alignItems='center' style={{margin: '5px'}}>
+        <Grid container direction='column' alignItems='center' justifyContent={'center'} sx={{marginTop: '20px'}} >
             
             
-            <Grid item style={{marginLeft: '5vw', marginRight: '5vw'}}>
+            <Grid item minWidth={'220px'}>
             
-            <Grid container direction='row' justifyContent='center' style={{ marginLeft:'150px', marginRight: '150px', background:'hsl(70, 31%, 85%)', textAlign: 'center', width: 'fit-content', maxWidth: '600px'}}>
+            <Grid container direction='row' justifyContent='center' style={{ 
+                // marginLeft: '125px', marginRight: '125px', 
+                // minWidth: '280px', 
+                background:'hsl(70, 31%, 85%)', textAlign: 'center', width: 'fit-content'}}>
                 
 
             {createBalloons(numberOfBalloons, onReset, setOnReset, toBePopped, handlePop, gameState, handleGameState)}
@@ -379,14 +382,14 @@ export default function BalloonPage() {
             
             </Grid>
             <Grid item>
-            <Grid container direction='column' alignItems='center' style={{ maxWidth: '80vw' }}>
-                <Grid item style={{maxWidth: '80vw'}}>
+            <Grid container direction='column' alignItems='center' style={{ maxWidth: '80vw', minWidth: '170px'}}>
+                <Grid item >
                     <Grid container direction='row' justifyContent='center' width='80vw'>
                         {/* Grid item containing the game buttons */}
                         <Grid item>
-                            <Grid container direction='column'>
+                            <Grid container direction='column' minWidth={'170px'}>
                                 <ThemeProvider theme={theme}>
-                                <Button disabled={loading || !(gameState.ongoing)} variant='contained' style={{margin: '5px'}} onClick={() => {
+                                <Button disabled={loading || !(gameState.ongoing)} variant='contained' style={{marginTop: '5px', marginBottom: '5px', minWidth: '170px'}} onClick={() => {
                                     
                                     setTriggerCoinToss(true)
                                     // console.log(coinState.result)
@@ -396,13 +399,13 @@ export default function BalloonPage() {
                                     }
                                     
                                 }}>Flip</Button>
-                                <Button disabled={loading} variant='contained' style={{margin: '5px'}} onClick={() => {
+                                <Button disabled={loading} variant='contained' style={{marginTop: '5px', marginBottom: '5px', minWidth: '170px'}} onClick={() => {
                                     
                                     setOnReset(true)
                                     
                                 }}>Reset</Button>
                                 </ThemeProvider>
-                                <Button variant='contained' style={{margin: '5px'}} href={Pdf} target="_blank">Math for Nerds</Button>
+                                <Button variant='contained' style={{marginTop: '5px', marginBottom: '5px', minWidth: '170px'}} href={Pdf} target="_blank">Math for Nerds</Button>
                                 {/* <Button variant='contained' style={{margin: '5px'}} onClick={openPDF}>Math for Nerds</Button> */}
 
                             </Grid>
@@ -445,7 +448,7 @@ export default function BalloonPage() {
                     <p style={{fontSize: '35px', margin: '2px'}}>'s:</p>
                 </Grid>
                                 
-                <Grid item style={{width: '40vw', maxWidth: '40vw', height: '30px', margin: '15px'}}>
+                <Grid item style={{width: '40vw', maxWidth: '40vw', height: '30px', margin: '15px', minWidth: '260px'}}>
                     {/* <Grid container direction='row'> */}
                                 {/* <Grid item width='40vw'> */}
                                 <Slider disabled={loading} defaultValue={10} aria-label="Default" valueLabelDisplay="auto" value={numberOfBalloons} onChange={handleChangeOfBalloons}/>
@@ -544,7 +547,7 @@ function createBalloons(numberOfBalloons, onReset, setOnReset, toBePopped, handl
 
     for (let i = 0; i < numberOfBalloons; i++) {
         result = result.concat((
-            <Grid key={`uniqueGridId${i}`} item>
+            <Grid key={`uniqueGridId${i}`} item margin={'5px'}>
                 <Balloon
                     key={`uniqueBalloonId${i + 1}`}
                     idNum={i + 1}

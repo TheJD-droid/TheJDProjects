@@ -1,9 +1,9 @@
 import '../App.css';
 
 function Home() {
-  return (
+  return (<>
     <p>This is where I put projects that I've made.</p>
-    
+    </>
   );
 }
 
