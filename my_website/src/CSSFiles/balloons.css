@@ -128,7 +128,8 @@ div.pageContainer { margin:0px; background:hsl(70, 31%, 85%); text-align:center;
         
       }
       100%{
-        opacity: 0;
+        /* opacity: 0; */
+        opacity: 1;
         transform: translate(35px, 50px) scale(1) translateZ(0) rotate(-340deg);
 
         
@@ -151,7 +152,8 @@ div.pageContainer { margin:0px; background:hsl(70, 31%, 85%); text-align:center;
         
       }
       100%{
-        opacity: 0;
+        /* opacity: 0; */
+        opacity: 1;
         transform: translate(60px, 40px) scale(1) translateZ(0) rotate(-500deg);
 
         
@@ -174,7 +176,8 @@ div.pageContainer { margin:0px; background:hsl(70, 31%, 85%); text-align:center;
         
       }
       100%{
-        opacity: 0;
+        /* opacity: 0; */
+        opacity: 1;
         transform: translate(35px, 50px) scale(1) translateZ(0) rotate(-530deg);
 
         
@@ -198,7 +201,8 @@ div.pageContainer { margin:0px; background:hsl(70, 31%, 85%); text-align:center;
         
       }
       100%{
-        opacity: 0;
+        /* opacity: 0; */
+        opacity: 1;
         transform: translate(35px, 50px) scale(1) translateZ(0) rotate(-600deg);
 
         
@@ -222,7 +226,8 @@ div.pageContainer { margin:0px; background:hsl(70, 31%, 85%); text-align:center;
         
       }
       100%{
-        opacity: 0;
+        /* opacity: 0; */
+        opacity: 1;
         transform: translate(45px, 50px) scale(1) translateZ(0) rotate(-440deg);
 
         
