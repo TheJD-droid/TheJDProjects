@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/TheJDProjects/static/css/main.8cf4f847.css",
-    "main.js": "/TheJDProjects/static/js/main.9a71b041.js",
+    "main.css": "/TheJDProjects/static/css/main.f0e8cb84.css",
+    "main.js": "/TheJDProjects/static/js/main.2eeb0504.js",
     "static/js/453.7476e934.chunk.js": "/TheJDProjects/static/js/453.7476e934.chunk.js",
     "static/media/coin-drop.wav": "/TheJDProjects/static/media/coin-drop.89b18cfa3a7252353678.wav",
     "static/media/TheBalloonProblem.pdf": "/TheJDProjects/static/media/TheBalloonProblem.a6fa147812087d3751b0.pdf",
@@ -9,12 +9,12 @@
     "static/media/coin-flick.mp3": "/TheJDProjects/static/media/coin-flick.ea15af9506a5a1222d70.mp3",
     "static/media/logo.svg": "/TheJDProjects/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/TheJDProjects/index.html",
-    "main.8cf4f847.css.map": "/TheJDProjects/static/css/main.8cf4f847.css.map",
-    "main.9a71b041.js.map": "/TheJDProjects/static/js/main.9a71b041.js.map",
+    "main.f0e8cb84.css.map": "/TheJDProjects/static/css/main.f0e8cb84.css.map",
+    "main.2eeb0504.js.map": "/TheJDProjects/static/js/main.2eeb0504.js.map",
     "453.7476e934.chunk.js.map": "/TheJDProjects/static/js/453.7476e934.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8cf4f847.css",
-    "static/js/main.9a71b041.js"
+    "static/css/main.f0e8cb84.css",
+    "static/js/main.2eeb0504.js"
   ]
 }
