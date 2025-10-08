@@ -21,9 +21,11 @@ export default function TTTBoard(props) {
 
 
     return(
+
 <Grid minWidth={'156.5px'} item>
-          {/* First row */}
-          <Grid item>
+
+    {/* First row */}
+    <Grid item>
         <Grid container spacing={0} direction='row' bgcolor={'white'}>
               <Grid item sx={(props.superTTTState.winner === 'None' && props.superTTTState['prevMove'] === props.boardID) || (props.superTTTState.winner === 'None' && props.superTTTState.prevMove === 'None' && props.superTTTState[props.boardID] === 'blank') || (props.superTTTState.winningCombo.includes(props.boardID)) ? styles.topLeftSelected : styles.topLeft}>
                   <BoardSquare boardID={props.boardID} superTTTState={props.superTTTState} setSuperTTTState={props.setSuperTTTState} 
@@ -39,51 +41,51 @@ export default function TTTBoard(props) {
                   boardState = {props.boardState} boardPos = {'topRight'} checkWin={checkWin} playerTurn={props.playerTurn} setPlayerTurn={props.setPlayerTurn}/>
               </Grid>
               
-            </Grid>
-            </Grid>
-            {/* Second Row */}
-            <Grid item>
-        <Grid container spacing={0} direction='row' bgcolor={'white'}>
-              <Grid item sx={(props.superTTTState.winner === 'None' && props.superTTTState['prevMove'] === props.boardID) || (props.superTTTState.winner === 'None' && props.superTTTState.prevMove === 'None' && props.superTTTState[props.boardID] === 'blank') || (props.superTTTState.winningCombo.includes(props.boardID)) ? styles.middleLeftSelected : styles.middleLeft}>
-                  <BoardSquare boardID={props.boardID} superTTTState={props.superTTTState} setSuperTTTState={props.setSuperTTTState} 
-                  boardState = {props.boardState} boardPos = {'middleLeft'} checkWin={checkWin} playerTurn={props.playerTurn} setPlayerTurn={props.setPlayerTurn}/>
-              </Grid>
-              <Grid item sx={(props.superTTTState.winner === 'None' && props.superTTTState['prevMove'] === props.boardID) || (props.superTTTState.winner === 'None' && props.superTTTState.prevMove === 'None' && props.superTTTState[props.boardID] === 'blank') || (props.superTTTState.winningCombo.includes(props.boardID)) ? styles.middleMiddleSelected : styles.middleMiddle}>
-                  <BoardSquare boardID={props.boardID} superTTTState={props.superTTTState} setSuperTTTState={props.setSuperTTTState} 
-                  boardState = {props.boardState} boardPos = {'middleMiddle'} checkWin={checkWin} playerTurn={props.playerTurn} setPlayerTurn={props.setPlayerTurn}/>
-              </Grid>
-              <Grid item sx={(props.superTTTState.winner === 'None' && props.superTTTState['prevMove'] === props.boardID) || (props.superTTTState.winner === 'None' && props.superTTTState.prevMove === 'None' && props.superTTTState[props.boardID] === 'blank') || (props.superTTTState.winningCombo.includes(props.boardID)) ? styles.middleRightSelected : styles.middleRight}>
-                  <BoardSquare boardID={props.boardID} superTTTState={props.superTTTState} setSuperTTTState={props.setSuperTTTState} 
-                  boardState = {props.boardState} boardPos = {'middleRight'} checkWin={checkWin} playerTurn={props.playerTurn} setPlayerTurn={props.setPlayerTurn}/>
-              </Grid>
-        </Grid> 
-            </Grid>
-            {/* End of row */}
-            {/* Third Row */}
-            <Grid item>
-        <Grid container spacing={0} direction='row' bgcolor={'white'}>
-              <Grid item sx={(props.superTTTState.winner === 'None' && props.superTTTState['prevMove'] === props.boardID) || (props.superTTTState.winner === 'None' && props.superTTTState.prevMove === 'None' && props.superTTTState[props.boardID] === 'blank') || (props.superTTTState.winningCombo.includes(props.boardID)) ? styles.bottomLeftSelected : styles.bottomLeft}>
-                  <BoardSquare boardID={props.boardID} superTTTState={props.superTTTState} setSuperTTTState={props.setSuperTTTState} 
-                  boardState = {props.boardState} boardPos = {'bottomLeft'} checkWin={checkWin} playerTurn={props.playerTurn} setPlayerTurn={props.setPlayerTurn}/>
-              </Grid>
-              <Grid item sx={(props.superTTTState.winner === 'None' && props.superTTTState['prevMove'] === props.boardID) || (props.superTTTState.winner === 'None' && props.superTTTState.prevMove === 'None' && props.superTTTState[props.boardID] === 'blank') || (props.superTTTState.winningCombo.includes(props.boardID)) ? styles.bottomMiddleSelected : styles.bottomMiddle}>
-                  <BoardSquare boardID={props.boardID} superTTTState={props.superTTTState} setSuperTTTState={props.setSuperTTTState} 
-                  boardState = {props.boardState} boardPos = {'bottomMiddle'} checkWin={checkWin} playerTurn={props.playerTurn} setPlayerTurn={props.setPlayerTurn}/>
-              </Grid>
-              <Grid item sx={(props.superTTTState.winner === 'None' && props.superTTTState['prevMove'] === props.boardID) || (props.superTTTState.winner === 'None' && props.superTTTState.prevMove === 'None' && props.superTTTState[props.boardID] === 'blank') || (props.superTTTState.winningCombo.includes(props.boardID)) ? styles.bottomRightSelected : styles.bottomRight}>
-                  <BoardSquare boardID={props.boardID} superTTTState={props.superTTTState} setSuperTTTState={props.setSuperTTTState} 
-                  boardState = {props.boardState} boardPos = {'bottomRight'} checkWin={checkWin} playerTurn={props.playerTurn} setPlayerTurn={props.setPlayerTurn}/>
-              </Grid>
-              
         </Grid>
+    </Grid>
+    {/* End of row */}  
+
+    {/* Second Row */}
+    <Grid item>
+        <Grid container spacing={0} direction='row' bgcolor={'white'}>
+            <Grid item sx={(props.superTTTState.winner === 'None' && props.superTTTState['prevMove'] === props.boardID) || (props.superTTTState.winner === 'None' && props.superTTTState.prevMove === 'None' && props.superTTTState[props.boardID] === 'blank') || (props.superTTTState.winningCombo.includes(props.boardID)) ? styles.middleLeftSelected : styles.middleLeft}>
+                <BoardSquare boardID={props.boardID} superTTTState={props.superTTTState} setSuperTTTState={props.setSuperTTTState} 
+                boardState = {props.boardState} boardPos = {'middleLeft'} checkWin={checkWin} playerTurn={props.playerTurn} setPlayerTurn={props.setPlayerTurn}/>
             </Grid>
-            {/* End of row */}
+            <Grid item sx={(props.superTTTState.winner === 'None' && props.superTTTState['prevMove'] === props.boardID) || (props.superTTTState.winner === 'None' && props.superTTTState.prevMove === 'None' && props.superTTTState[props.boardID] === 'blank') || (props.superTTTState.winningCombo.includes(props.boardID)) ? styles.middleMiddleSelected : styles.middleMiddle}>
+                <BoardSquare boardID={props.boardID} superTTTState={props.superTTTState} setSuperTTTState={props.setSuperTTTState} 
+                boardState = {props.boardState} boardPos = {'middleMiddle'} checkWin={checkWin} playerTurn={props.playerTurn} setPlayerTurn={props.setPlayerTurn}/>
+            </Grid>
+            <Grid item sx={(props.superTTTState.winner === 'None' && props.superTTTState['prevMove'] === props.boardID) || (props.superTTTState.winner === 'None' && props.superTTTState.prevMove === 'None' && props.superTTTState[props.boardID] === 'blank') || (props.superTTTState.winningCombo.includes(props.boardID)) ? styles.middleRightSelected : styles.middleRight}>
+                <BoardSquare boardID={props.boardID} superTTTState={props.superTTTState} setSuperTTTState={props.setSuperTTTState} 
+                boardState = {props.boardState} boardPos = {'middleRight'} checkWin={checkWin} playerTurn={props.playerTurn} setPlayerTurn={props.setPlayerTurn}/>
+            </Grid>
+        </Grid> 
+    </Grid>
+    {/* End of row */}
+
+    {/* Third Row */}
+    <Grid item>
+        <Grid container spacing={0} direction='row' bgcolor={'white'}>
+            <Grid item sx={(props.superTTTState.winner === 'None' && props.superTTTState['prevMove'] === props.boardID) || (props.superTTTState.winner === 'None' && props.superTTTState.prevMove === 'None' && props.superTTTState[props.boardID] === 'blank') || (props.superTTTState.winningCombo.includes(props.boardID)) ? styles.bottomLeftSelected : styles.bottomLeft}>
+                <BoardSquare boardID={props.boardID} superTTTState={props.superTTTState} setSuperTTTState={props.setSuperTTTState} 
+                boardState = {props.boardState} boardPos = {'bottomLeft'} checkWin={checkWin} playerTurn={props.playerTurn} setPlayerTurn={props.setPlayerTurn}/>
+            </Grid>
+            <Grid item sx={(props.superTTTState.winner === 'None' && props.superTTTState['prevMove'] === props.boardID) || (props.superTTTState.winner === 'None' && props.superTTTState.prevMove === 'None' && props.superTTTState[props.boardID] === 'blank') || (props.superTTTState.winningCombo.includes(props.boardID)) ? styles.bottomMiddleSelected : styles.bottomMiddle}>
+                <BoardSquare boardID={props.boardID} superTTTState={props.superTTTState} setSuperTTTState={props.setSuperTTTState} 
+                boardState = {props.boardState} boardPos = {'bottomMiddle'} checkWin={checkWin} playerTurn={props.playerTurn} setPlayerTurn={props.setPlayerTurn}/>
+            </Grid>
+            <Grid item sx={(props.superTTTState.winner === 'None' && props.superTTTState['prevMove'] === props.boardID) || (props.superTTTState.winner === 'None' && props.superTTTState.prevMove === 'None' && props.superTTTState[props.boardID] === 'blank') || (props.superTTTState.winningCombo.includes(props.boardID)) ? styles.bottomRightSelected : styles.bottomRight}>
+                <BoardSquare boardID={props.boardID} superTTTState={props.superTTTState} setSuperTTTState={props.setSuperTTTState} 
+                boardState = {props.boardState} boardPos = {'bottomRight'} checkWin={checkWin} playerTurn={props.playerTurn} setPlayerTurn={props.setPlayerTurn}/>
+            </Grid>   
+        </Grid>
+    </Grid>
+    {/* End of row */}
             
-          {/*End of tictactoe board*/}
-
-          </Grid>
-    );
-
+</Grid>
+//End of tic tac toe board
+);
 
 }
 

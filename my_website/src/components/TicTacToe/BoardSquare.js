@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 //import checkWin from 
 import { useEffect } from "react";
 
+const SQUARE_COLOR = '#ffffffff';
 
 export default function BoardSquare(props) {
     
@@ -110,7 +111,7 @@ export default function BoardSquare(props) {
     };
 
   return(
-    <Box sx={{padding: '5px'}}>
+    <Box sx={{padding: '5px', backgroundColor: SQUARE_COLOR}}>
         <IconButton onClick={() => {
             handleClick()
             }}>
